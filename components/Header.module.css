@@ -1,0 +1,172 @@
+.header {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.headerContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoImage {
+  object-fit: contain;
+  transition: .1s;
+}
+
+.logoImage:hover {
+  opacity: 0.8;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.brandName {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.team {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+  font-size: 20px;
+}
+
+.navLink:hover {
+  opacity: 0.8;
+}
+
+@keyframes shine {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 150%;
+  }
+}
+
+
+.actionButton {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 36px;
+  background-color: #72727239;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.actionButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.actionButton:hover::before {
+  animation: shine 0.8s ease-in-out;
+}
+@media (max-width: 1024px) {
+  .nav {
+    gap: 20px;
+  }
+  
+  .navLink, .actionButton {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .nav {
+    position: static;
+    transform: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .logoGroup {
+    order: 1;
+  }
+  
+  .actionButton {
+    order: 2;
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 15px;
+  }
+  
+  .navLink {
+    font-size: 16px;
+  }
+  
+  .brandName {
+    font-size: 20px;
+  }
+  
+  .team {
+    font-size: 14px;
+  }
+  
+  .logoImage {
+    width: 80px;
+    height: auto;
+  }
+}
